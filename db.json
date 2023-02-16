@@ -1,0 +1,72 @@
+{
+  "users": [
+    {
+      "name": "Idan Zaguri",
+      "email": "90iz80@gmail.com",
+      "password": "12345678Ba!",
+      "accType": "Business",
+      "id": 1
+    },
+    {
+      "name": "Israel Israeli",
+      "email": "israel@israeli.co.il",
+      "password": "israeli123!",
+      "accType": "Business",
+      "id": 2
+    },
+    {
+      "name": "Yakov Yakovi",
+      "email": "yakov@yakovi.co.il",
+      "password": "yakovi123!",
+      "accType": "Personal",
+      "id": 3
+    }
+  ],
+  "cards": [
+    {
+      "name": "Google",
+      "description": "Search Engine",
+      "address": "Silicon Valley",
+      "phone": "5559142307",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Google_Chrome_icon_%28February_2022%29.svg/1200px-Google_Chrome_icon_%28February_2022%29.svg.png",
+      "userID": 2,
+      "id": 1
+    },
+    {
+      "name": "Meta Inc.",
+      "description": "Technology conglomerate",
+      "address": "Silicon Valley",
+      "phone": "5554321567",
+      "image": "https://img.freepik.com/free-vector/meta-icon-social-media-flat-graphic-vector-3-november-2021-bangkok-thailand_53876-157871.jpg?w=2000",
+      "userID": 1,
+      "id": 2
+    },
+    {
+      "name": "Twitter",
+      "description": "Social Platform",
+      "address": "Somewhere",
+      "phone": "5555819912",
+      "image": "http://store-images.s-microsoft.com/image/apps.50484.9007199266244427.4d45042b-d7a5-4a83-be66-97779553b24d.2c71c1ea-c28f-4dd1-b72d-c43cdd3476f4",
+      "userID": 1,
+      "id": 3
+    },
+    {
+      "name": "Instagram",
+      "description": "Social Networking service",
+      "address": "United States",
+      "phone": "1234567890",
+      "image": "https://img.freepik.com/free-vector/instagram-icon_1057-2227.jpg",
+      "userID": 1,
+      "id": 4
+    },
+    {
+      "name": "HackerU",
+      "description": "High Tech college",
+      "address": "Ramat Gan",
+      "phone": "03-6135565",
+      "image": "https://www.hackeru.co.il/wp-content/uploads/2021/12/hackeru200.png",
+      "userID": 2,
+      "id": 5
+    }
+  ]
+}
