@@ -107,6 +107,7 @@ const SignUp: FunctionComponent<SignUpProps> = () => {
                             id="type1"
                             name="type"
                             autoComplete="off"
+                            onChange={formik.handleChange}
                             defaultChecked
                         />
                         <label htmlFor="type1" className="btn btn-outline-secondary">
@@ -120,6 +121,7 @@ const SignUp: FunctionComponent<SignUpProps> = () => {
                             value="Business"
                             id="type2"
                             name="type"
+                            onChange={formik.handleChange}
                             autoComplete="off"
                         />
                         <label htmlFor="type2" className="btn btn-outline-secondary">

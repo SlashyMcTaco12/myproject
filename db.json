@@ -20,6 +20,20 @@
       "password": "yakovi123!",
       "accType": "Personal",
       "id": 3
+    },
+    {
+      "name": "asdfas asdfasd",
+      "email": "shosh@idan.com",
+      "password": "01379456Ba!",
+      "accType": "Personal",
+      "id": 4
+    },
+    {
+      "name": "Idan Zaguri",
+      "email": "shosh@shosh.com",
+      "password": "12345678Ba!",
+      "accType": "Business",
+      "id": 5
     }
   ],
   "cards": [
