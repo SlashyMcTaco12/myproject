@@ -1,8 +1,9 @@
-import { useFormik } from "formik";
-import { FunctionComponent } from "react";
+import { ErrorMessage, useFormik } from "formik";
+import { FunctionComponent, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as yup from 'yup';
 import User from "../interfaces/User";
-import { successMsg } from "../services/feedback";
+import { errorMsg, successMsg } from "../services/feedback";
 import { addUser } from "../services/userServices";
 
 interface SignUpProps {
@@ -10,8 +11,9 @@ interface SignUpProps {
 }
 
 const SignUp: FunctionComponent<SignUpProps> = () => {
+    let [updated, setUpdated] = useState<boolean>(false)
     let formik = useFormik({
-        initialValues: { firstName: "", lastName: "", email: "", password: "", type: "Personal" },
+        initialValues: { firstName: "", lastName: "", email: "", password: "", type: ""},
         validationSchema: yup.object({
             firstName: yup.string().required('Required Field!').min(2, 'Name too short!'),
             lastName: yup.string().required('Required Field!').min(2, 'Name too short!'),
@@ -29,12 +31,19 @@ const SignUp: FunctionComponent<SignUpProps> = () => {
                 accType: values.type
             }
             addUser(newUser)
-            resetForm();
-            successMsg('You have successfully registered!')
+            .then(() => {
+                successMsg('You have successfully registered!')
+                resetForm()
+                setUpdated(!updated)
+            })
+            .catch((err) => {
+                errorMsg(err.response.data)
+            })
         }
-    }) 
-    return <>
+    })
 
+    useEffect(() => {}, [updated])
+    return <>
             <h3 className="display-3 text-light text-center">SIGN UP</h3>
             <form onSubmit={formik.handleSubmit}>
                 <div className="d-flex justify-content-between">

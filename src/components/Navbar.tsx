@@ -42,9 +42,11 @@ const Navbar: FunctionComponent<NavbarProps> = ({ isLoggedIn, setIsLoggedIn, isB
                 {isLoggedIn ? <button className="btn btn-danger btn-lg" onClick={() => (
                     setIsLoggedIn(false),
                     setIsBusiness(false),
-                    localStorage.setItem('isBusiness', 'false'),
-                    localStorage.setItem('isLoggedIn', 'false'),
-                    localStorage.setItem('userID', '0'),
+                    localStorage.setItem('userData', 
+                    JSON.stringify({
+                        isBusiness: false,
+                        isLoggedIn: false
+                    })),
                     successMsg('Succesfully logged out!'),
                     navigate('/')
                 )}>Logout</button> : <></>}

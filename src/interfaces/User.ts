@@ -3,5 +3,5 @@ export default interface User {
     email: string,
     password: string,
     accType?: string
-    id?: number,
+    _id?: string,
 }

@@ -2,18 +2,21 @@ import { useFormik } from "formik";
 import { stringify } from "querystring";
 import { FunctionComponent, useState } from "react";
 import { Button, Card, Modal } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import * as yup from 'yup';
 import busCard from "../interfaces/busCard";
 import { addCard } from "../services/cardServices";
-import { successMsg } from "../services/feedback";
+import { errorMsg, successMsg } from "../services/feedback";
+import { getUserProfile } from "../services/userServices";
 
 interface AddCardProps {
 
 }
 
 const AddCard: FunctionComponent<AddCardProps> = () => {
+    let navigate = useNavigate()
     let formik = useFormik({
-        initialValues: { name: "", description: "", address: "", phone: "", image: "", userID: JSON.parse(localStorage.getItem('userID') as string) },
+        initialValues: { name: "", description: "", address: "", phone: "", image: "", userID: "" },
         validationSchema: yup.object({
             name: yup.string().required('Business name required.').min(2).max(20),
             description: yup.string().required('Business description required.').min(2).max(40),
@@ -22,9 +25,18 @@ const AddCard: FunctionComponent<AddCardProps> = () => {
             image: yup.string().required('Paste image URL here.')
         }),
         onSubmit: (values: busCard, { resetForm }) => {
-            addCard(values)
-            resetForm()
-            successMsg('Card succesfully created!')
+            getUserProfile()
+            .then((res) => {
+                values.userID = res.data._id as string
+                addCard(values)
+                .then(() => {
+                    successMsg('Card succesfully created!')
+                    navigate("/mycards")
+                })
+                .catch((err) => errorMsg(err.response.data))
+                resetForm()
+            })
+            .catch((err) => console.log(err))
         }
     })
 

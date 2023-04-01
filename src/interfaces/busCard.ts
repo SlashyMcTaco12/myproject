@@ -4,6 +4,6 @@ export default interface busCard {
     address: string,
     phone: string,
     image: string,
-    userID: number
-    id?: number
+    userID: string,
+    _id?: string
 }

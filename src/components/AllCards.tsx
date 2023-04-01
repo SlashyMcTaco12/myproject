@@ -19,19 +19,23 @@ const AllCards: FunctionComponent<AllCardsProps> = () => {
     return <>
         <div className="container d-flex flex-wrap">
             {<>
-                {cards.map((card: busCard) => (
-                    <Card className="bg-dark border border-success text-light mx-3 my-3" style={{ width: '18rem', alignItems: 'center', textAlign: 'center' }}>
-                        <Card.Img variant="top" style={{ width: '10rem' }} src={card.image} />
-                        <Card.Body>
-                            <Card.Title>Name: {card.name}</Card.Title>
-                            <Card.Text>
-                                <div>{card.description}</div>
-                                <div>Address: {card.address}</div>
-                                <div>Phone: {card.phone}</div>
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                ))}
+                {cards.length ? (
+                    cards.map((card: busCard) => (
+                        <Card className="bg-dark border border-success text-light mx-3 my-3" style={{ width: '18rem', alignItems: 'center', textAlign: 'center' }}>
+                            <Card.Img variant="top" style={{ width: '10rem' }} src={card.image} />
+                            <Card.Body>
+                                <Card.Title>Name: {card.name}</Card.Title>
+                                <Card.Text>
+                                    <div>{card.description}</div>
+                                    <div>Address: {card.address}</div>
+                                    <div>Phone: {card.phone}</div>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    ))
+                ) : (
+                    <h1 className="display-1 text-light mx-auto">No cards found!</h1>
+                )}
             </>}
         </div>
     </>

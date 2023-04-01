@@ -15,8 +15,8 @@ import About from './components/About';
 
 
 function App() {
-  let [isLoggedIn, setIsLoggedIn] = useState<boolean>(localStorage.getItem("isLoggedIn") == 'true' ? true : false);
-  let [isBusiness, setIsBusiness] = useState<boolean>(localStorage.getItem("isBusiness") == 'true' ? true : false);
+  let [isLoggedIn, setIsLoggedIn] = useState<boolean>(JSON.parse(localStorage.getItem('userData') as string).isLoggedIn == true ? true : false);
+  let [isBusiness, setIsBusiness] = useState<boolean>(JSON.parse(localStorage.getItem('userData') as string).isBusiness == true ? true : false);
   useEffect(() => { }, [isLoggedIn])
   return (
     <>
