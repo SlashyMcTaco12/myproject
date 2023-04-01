@@ -2,7 +2,7 @@
 
 הפעלה:
 1. פתיחת התיקייה הראשית והרצת הפעולות:
-  npm i -g nodemon
-  npm i
-  npm start
+ a. npm i -g nodemon
+ b. npm i
+ c. npm start
 2. פתיחת תת-תיקייה 'server' והרצת הפקודה nodemon index
